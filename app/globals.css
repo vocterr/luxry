@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body {
-  overflow: hidden
+  overflow-x: hidden;
 }
 .formLabel {
     @apply text-xs font-bold text-gray-400
