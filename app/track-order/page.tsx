@@ -1,4 +1,5 @@
 
+import { Note } from "@/components/Note";
 import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "LUXry // Track Order",
@@ -34,6 +35,7 @@ export default async function TrackOrderPage() {
               className="formInput"
               placeholder="Enter your email address"
             />
+            <Note/>
             <button className="submitButton">
               Track Order
             </button>
