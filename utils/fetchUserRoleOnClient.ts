@@ -4,7 +4,7 @@
 export const fetchUserRoleOnClient = async () => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/userRole/`, {
+        const res = await fetch(`/api/userRole/`, {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"

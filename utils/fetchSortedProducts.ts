@@ -3,7 +3,7 @@
 
 export const fetchSortedProducts = async (sort: string) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sortedProducts?sort=${sort}`, {
+        const res = await fetch(`/api/sortedProducts?sort=${sort}`, {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json",

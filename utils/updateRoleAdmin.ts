@@ -4,7 +4,7 @@
 export const updateRoleAdmin = async (role: string, userId: string) => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/updateRoleAdmin/${userId}`, {
+        const res = await fetch(`/api/updateRoleAdmin/${userId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type" : "application/json"

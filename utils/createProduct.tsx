@@ -4,7 +4,7 @@
 
 export const createProduct = async (formData: FormData) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/create-product`, {
+        const res = await fetch(`/api/create-product`, {
             method: "POST",
             body: formData,
             credentials: "include"

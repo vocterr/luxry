@@ -5,7 +5,7 @@ import { OrderStatus } from "@/types";
 export const updateOrderStatus = async (orderId: string, orderStatus: OrderStatus) => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/updateOrderStatus/${orderId}`, {
+        const res = await fetch(`/api/updateOrderStatus/${orderId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type" : "application/json"

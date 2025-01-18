@@ -4,7 +4,7 @@
 export const fetchCartOnClient = async () => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart`, {
+        const res = await fetch(`/api/cart`, {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"

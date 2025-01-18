@@ -10,7 +10,7 @@ export const registerUser = async (name: string, email: string, password: string
         return {success: false, message: "You have to agree to our Terms of Service."};
     }
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+        const res = await fetch(`/api/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({name, email, password}),

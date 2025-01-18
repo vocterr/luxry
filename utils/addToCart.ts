@@ -4,7 +4,7 @@
 
 export const addToCart = async (productId: string) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cartItem`, {
+        const res = await fetch(`/api/cartItem`, {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"

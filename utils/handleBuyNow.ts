@@ -4,7 +4,7 @@ import { stripePromise } from "@/stripe";
 
 export const handleBuyNow = async (productId: string) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/buy-now`, {
+        const res = await fetch(`/api/buy-now`, {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"

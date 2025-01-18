@@ -4,7 +4,7 @@
 export const deleteCartItem = async (cartItemId: string) => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cartItem/${cartItemId}`, {
+        const res = await fetch(`/api/cartItem/${cartItemId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type" : "application/json"

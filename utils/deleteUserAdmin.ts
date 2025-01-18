@@ -4,7 +4,7 @@
 export const deleteUserAdmin = async (userId: string) => {
     
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/deleteUserAdmin/${userId}`, {
+        const res = await fetch(`/api/deleteUserAdmin/${userId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type" : "application/json"

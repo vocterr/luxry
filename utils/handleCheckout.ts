@@ -3,7 +3,7 @@ import { stripePromise } from "@/stripe";
 
 export const handleCheckout = async (  cartId: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/create-checkout-session`, {
+      const response = await fetch(`/api/create-checkout-session`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

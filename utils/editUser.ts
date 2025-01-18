@@ -4,7 +4,7 @@
 
 export const editUser = async (name: string, email: string, password: string) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/profile`, {
+        const res = await fetch(`/api/profile`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({name, email, password}),

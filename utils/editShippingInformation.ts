@@ -4,7 +4,7 @@ import { ShippingInformation } from "@/types";
 
 export const editShippingInformation = async (shippingInformation: ShippingInformation) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/shippingInformation`, {
+        const res = await fetch(`/api/shippingInformation`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({shippingInformation}),
