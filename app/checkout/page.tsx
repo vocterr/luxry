@@ -22,7 +22,7 @@ export default async function CheckoutPage() {
     return (
         <div className="flex flex-col w-full mt-24 sm:px-16 md:px-28 lg:px-52 xl:px-96 2xl:px-[470px] 3xl:px-[580px] font-playfair">
             <h1 className="text-4xl mb-6 font-cinzel pb-2 border-b text-center w-[90%] self-center border-gray-500">Checkout</h1>
-            {shippingInformation ? (
+            {shippingInformation.city ? (
                 <>
                     <ShippingInformationCheckoutPage shippingInformation={shippingInformation} />
                     <h1 className="text-2xl mb-6 font-cinzel text-center mt-6">Order Details</h1>
