@@ -1,18 +1,33 @@
-import type { Config } from "tailwindcss";
-
-export default {
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx}", 
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        playfair: ["var(--font-playfair)", "serif"],
+        cinzel: ["var(--font-cinzel)", "serif"],
+        inter: ["var(--font-inter)", "serif"]
       },
+      screens: {
+        "3xl": "1920px"
+      }
     },
+    
   },
-  plugins: [],
-} satisfies Config;
+
+  safelist: [
+    "scrollbar",
+    "scrollbar-thin",
+    "scrollbar-thumb-gray-600",
+    "scrollbar-track-gray-800",
+    "scrollbar-thumb-rounded-full",
+    "scrollbar-track-rounded-full",
+  ],
+  plugins: [
+    require("tailwind-scrollbar")({nocompatible: true})
+  ],
+};
