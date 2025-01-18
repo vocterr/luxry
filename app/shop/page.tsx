@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function ShopPage() {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
-    const carouselProducts: Product[] = await fetchCarouselProductsOnServer("Winter Elegance");
+    const carouselProducts: Product[] = await fetchCarouselProductsOnServer("Winter Elegance") || [];
     const initialProducts: Product[] = await fetchInitialProductsOnServer() || [];
     let userRole: { role: "ADMIN" | "USER" | "" } = { role: "" };
     if (token) {
