@@ -25,7 +25,7 @@ export const ShopPageOnClient = ({
     const { products, setProducts } = useProducts();
 
     useEffect(() => {
-        setProducts(initialProducts);
+        setProducts(initialProducts || []);
     }, [initialProducts]);
 
     return (
