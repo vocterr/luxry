@@ -12,7 +12,7 @@ export const CartPageOnClient = ({ initialCart }: { initialCart: Cart }) => {
 
     useEffect(() => {
         setTotal(cart.cartItems.reduce((acc, item) => acc + item.product.price, 0));
-    });
+    }, []);
 
     
 
