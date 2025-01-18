@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://luxry-backend.onrender.com/api/:path*"
+        destination: process.env.NODE_ENV == "development" ? "http://localhost:3001/api/:path*" : "https://luxry-backend.onrender.com/api/:path*"
       }
     ]
   },
@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true"},
-          { key: "Access-Control-Allow-Origin", value: "https://luxry.vercel.app"},
+          { key: "Access-Control-Allow-Origin", value: process.env.NODE_ENV == "development" ?  "http://localhost:3000" : "https://luxry.vercel.app"},
           { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,POST,PUT,DELETE"},
           { key: "Access-Control-Allow-Headers", value: "Content-Type,Authorization"}
         ]

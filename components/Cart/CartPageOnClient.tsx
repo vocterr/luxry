@@ -18,7 +18,7 @@ export const CartPageOnClient = ({ initialCart }: { initialCart: Cart }) => {
 
     return (
         <div className='flex flex-col mt-24 w-full'>
-            <div className='flex scrollbar-none flex-col max-h-[600px] p-4  '>
+            <div className='flex scrollbar-none flex-col max-h-[350px] sm:max-h-[450px] lg:max-h-[520px] overflow-y-auto p-4  '>
                 {cart.cartItems.map((item) => (
                     <CartItemCartPage key={item.id} item={item} setTotal={setTotal}/>
                 ))}

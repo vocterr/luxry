@@ -1,16 +1,21 @@
 "use client";
 
+import { Spinner } from '@/components/Spinner';
 import { Product } from '@/types'
 import { addToCart } from '@/utils/addToCart'
 import { addToWishlist } from '@/utils/addToWishlist';
+import { deleteWishlistItem } from '@/utils/deleteWishlistItem';
+import { handleBuyNow } from '@/utils/handleBuyNow';
+import { AnimatePresence, motion } from "framer-motion"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { BsFillHeartFill } from 'react-icons/bs';
 import { FiCreditCard, FiHeart, FiShoppingCart, FiTool } from 'react-icons/fi'
+import { ButtonsProductCardShopPage } from './Buttons/ButtonsProductCardShopPage';
 
 export const ProductCardShopPage = ({ product, userRole }: { product: Product, userRole?: "ADMIN" | "USER" | "" }) => {
-
-
+    
     return (
         <div
             key={product.id}
@@ -44,27 +49,16 @@ export const ProductCardShopPage = ({ product, userRole }: { product: Product, u
                         View Details
                     </button>
                 </Link>
-
-                <div className='flex items-center justify-between mt-6 px-10'>
-                    <div className=' p-2 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-300 hover:scale-[1.03]'>
-                        <FiCreditCard className='h-7 w-7 text-green-500' />
-                    </div>
-                    <div onClick={() => addToCart(product.id)}  className=' p-2 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-300 hover:scale-[1.03]'>
-                        <FiShoppingCart className='h-7 w-7 text-amber-500' />
-                    </div>
-
-                    <div onClick={() => addToWishlist(product.id)} className=' p-2 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-300 hover:scale-[1.03]'>
-                        <FiHeart className='h-7 w-7 text-red-500' />
-                    </div>
-
-
-                </div>
+                <ButtonsProductCardShopPage product={product}/>
+                
             </div>
-            {userRole === 'ADMIN' && (
-                <Link href={`/manage-products/${product.id}`} className='absolute top-2 right-2 z-50 p-2  rounded-full bg-gray-800 hover:bg-gray-800/95 hover:scale-[1.04] transition-all duration-300'>
-                    <FiTool className='h-7 w-7' />
-                </Link>
-            )}
-        </div>
+            {
+                userRole === 'ADMIN' && (
+                    <Link href={`/manage-products/${product.id}`} className='absolute top-2 right-2 z-50 p-2  rounded-full bg-gray-800 hover:bg-gray-800/95 hover:scale-[1.04] transition-all duration-300'>
+                        <FiTool className='h-7 w-7' />
+                    </Link>
+                )
+            }
+        </div >
     )
 }
