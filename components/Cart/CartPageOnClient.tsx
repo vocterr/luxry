@@ -18,13 +18,13 @@ export const CartPageOnClient = ({ initialCart }: { initialCart: Cart }) => {
 
     return (
         <div className='flex flex-col mt-24 w-full'>
-            <div className='flex scrollbar-none flex-col max-h-[600px] p-4 overflow-y-auto w-[500px] overflow-x-auto '>
+            <div className='flex scrollbar-none flex-col max-h-[600px] p-4  '>
                 {cart.cartItems.map((item) => (
                     <CartItemCartPage key={item.id} item={item} setTotal={setTotal}/>
                 ))}
             </div>
 
-            <div className='border-b  border-gray-700 w-[90%] self-center flex flex-col p-4 '>
+            <div className='border-b  md:w-[80%] lg:w-[65%] xl:w-[55%] 2xl:w-[45%] 3xl:w-[40%] md:self-center border-gray-700 w-[90%] self-center flex flex-col p-4 '>
                 <h1 className='font-bold text-xl font-inter mb-8'>Order Summary</h1>
                 <div className='grid grid-cols-2 gap-y-3  font-inter text-gray-400'>
                     <h1>Original Price</h1>
@@ -34,12 +34,12 @@ export const CartPageOnClient = ({ initialCart }: { initialCart: Cart }) => {
                 </div>
             </div>
 
-            <div className='flex px-4 font-bold font-inter w-[90%] self-center mt-3 items-center justify-between'>
+            <div className='flex md:w-[80%] lg:w-[65%] xl:w-[55%] 2xl:w-[45%] 3xl:w-[40%] md:self-center px-4 font-bold font-inter w-[90%] self-center mt-3 items-center justify-between'>
                 <h1>Total</h1>
                 <p>${(total + total * 0.23).toFixed(2)}</p>
             </div>
 
-            <div className='flex flex-col w-[90%] self-center mt-6'>
+            <div  className='flex flex-col w-[90%] md:w-[80%] lg:w-[65%] xl:w-[55%] 2xl:w-[45%] 3xl:w-[40%] md:self-center self-center mt-6'>
                 <Link href="/shop" className='bg-gray-800/85 hover:bg-gray-800/75 hover:scale-[1.03] transition-all duration-300 border border-gray-500 text-center rounded-lg text-gray-400 font-inter py-2 w-full'>
                     Continue Shopping
                 </Link>

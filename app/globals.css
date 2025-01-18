@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+html, body {
+  overflow: hidden
+}
 .formLabel {
     @apply text-xs font-bold text-gray-400
 }
