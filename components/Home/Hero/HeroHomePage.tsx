@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { ExploreButton } from './ExploreButton/ExploreButton'
 
 export const HeroHomePage = () => {
     return (
@@ -15,7 +16,7 @@ export const HeroHomePage = () => {
                 <p className="text-xl font-cinzel">
                     Discover exquisite jewelry pieces crafted for elegance.
                 </p>
-                
+                <ExploreButton/>
             </div>
         </div>
     )

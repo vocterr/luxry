@@ -4,7 +4,7 @@ import { PageLoading } from '@/components/PageLoading';
 import { useRouter } from 'next/navigation';
 import React, { useTransition } from 'react'
 
-export const ExplortButton = () => {
+export const ExploreButton = () => {
     const [pending, startTransition] = useTransition();
     const router = useRouter();
 
