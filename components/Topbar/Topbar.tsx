@@ -5,6 +5,7 @@ import { MenuTopbar } from './Menu/MenuTopbar'
 import { SearchDesktop } from './Search/SearchDesktop'
 import { RightTopbar } from './Right/RightTopbar'
 import { SearchMobile } from './Search/SearchMobile'
+import { MidTopbar } from './Mid/MidTopbar'
 
 export const Topbar = () => {
 
@@ -15,19 +16,8 @@ export const Topbar = () => {
                 <Link className='font-cinzel text-3xl font-bold' href="/">
                     LUXry
                 </Link>
-
-                <div className='hidden lg:flex items-center space-x-6 text-gray-300 font-cinzel text-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    <Link href="/shop" className='hover:text-white duration-300 transition-all'>
-                        Shop
-                    </Link>
-
-                    <Link href="/contact" className='hover:text-white duration-300 transition-all'>
-                        Contact Us
-                    </Link>
-
-                    <SearchDesktop/>
-                    
-                </div>
+                <MidTopbar/>
+                
 
                 <div className='flex items-center space-x-2'>
                     <SearchMobile/>

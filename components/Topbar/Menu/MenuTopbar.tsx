@@ -1,129 +1,148 @@
 "use client";
 
+import React, { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { logoutUser } from "@/utils/logoutUser";
-import Link from "next/link";
-import React, { useState } from "react";
 import { BsShop } from "react-icons/bs";
-import { FiHeart, FiLogIn, FiLogOut, FiMenu, FiShoppingCart, FiTruck, FiX } from "react-icons/fi";
-import { TbLayoutSidebarRightCollapse } from "react-icons/tb";
+import {
+  FiHeart,
+  FiLogIn,
+  FiLogOut,
+  FiMenu,
+  FiShoppingCart,
+  FiTruck,
+  FiX
+} from "react-icons/fi";
+import { PageLoading } from "@/components/PageLoading";
 
 export const MenuTopbar = () => {
-    const [isMenuOpened, setIsMenuOpened] = useState(false);
-    const [loading, setLoading] = useState(false);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
-    const handleClick = () => {
-        setLoading(true);
-        setIsMenuOpened(false);
-    }
+  const handleNavigation = (href: string) => {
+    setIsMenuOpened(false);
+    startTransition(() => {
+      router.push(href);
+    });
+  };
 
-    return (
-        <>
-            <FiMenu
-                onClick={() => setIsMenuOpened(true)}
-                className="h-6 w-6 lg:hidden text-white cursor-pointer"
-            />
-            {isMenuOpened && (
-                <div className="fixed h-[100vh] w-[100vw] top-0 -left-2 bg-black text-white z-[999]">
-                    <FiX
-                        onClick={handleClick}
-                        className="h-6 w-6 absolute top-5 right-5 cursor-pointer"
-                    />
 
-                    <div className="py-6 border-b border-gray-600">
-                        <Link
-                            onClick={handleClick}
-                            href="/"
-                            className="font-cinzel text-4xl font-bold text-center block"
-                        >
-                            LUXry
-                        </Link>
-                    </div>
+  return (
+    <>
+      {/* Hamburger menu icon (only visible on small screens) */}
+      <FiMenu
+        onClick={() => setIsMenuOpened(true)}
+        className="h-6 w-6 lg:hidden text-white cursor-pointer"
+      />
 
-                    <div className="mt-8 flex flex-col space-y-6 px-6">
-                        <Link
-                            onClick={handleClick}
-                            href="/shop"
-                            className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <BsShop />
-                            <h1> Shop</h1>
-                        </Link>
-                        <Link
-                            onClick={handleClick}
-                            href="/cart"
-                            className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <FiShoppingCart />
-                            <h1>Cart</h1>
+      {/* Side menu overlay */}
+      {isMenuOpened && (
+        <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-black text-white z-[999]">
+          {/* Close icon */}
+          <FiX
+            onClick={() => setIsMenuOpened(false)}
+            className="h-7 w-7 absolute top-5 right-5 cursor-pointer p-1 rounded bg-gray-900/80"
+          />
 
-                        </Link>
-                        <Link
-                            onClick={handleClick}
-                            href="/wishlist"
-                            className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <FiHeart />
-                            <h1>Wishlist</h1>
-                        </Link>
-                        <Link
-                            onClick={handleClick}
-                            href="/track-order"
-                            className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <FiTruck />
-                            <h1>Track Order</h1>
-                        </Link>
-                        <Link
-                            onClick={handleClick}
-                            href="/signin"
-                            className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <FiLogIn />
-                            <h1>Sign In</h1>
-                        </Link>
-                        <div
-                            onClick={() => { logoutUser(); window.location.reload(); setIsMenuOpened(false) }}
-                            className="text-xl text-rose-500 rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
-                        >
-                            <FiLogOut />
-                            <h1>Log Out</h1>
-                        </div>
-                    </div>
+          {/* Logo */}
+          <div className="py-6 flex items-center justify-center border-b border-gray-600">
+            <button
+              onClick={() => handleNavigation("/")}
+              className="font-cinzel text-4xl font-bold text-center self-center"
+            >
+              LUXry
+            </button>
+          </div>
 
-                    <div className="absolute bottom-6 left-0 w-full px-6">
-                        <div className="flex flex-col space-y-3">
-                            <Link
-                                onClick={handleClick}
-                                href="/contact"
-                                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
-                            >
-                                Contact Us
-                            </Link>
-                            <Link
-                                onClick={handleClick}
-                                href="/faq"
-                                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
-                            >
-                                FAQ
-                            </Link>
-                            <Link
-                                onClick={handleClick}
-                                href="/policy"
-                                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
-                            >
-                                Privacy Policy
-                            </Link>
-                            <Link
-                                onClick={handleClick}
-                                href="/terms"
-                                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
-                            >
-                                Terms & Conditions
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </>
-    );
+          {/* Menu items */}
+          <div className="mt-8 flex flex-col space-y-6 px-6">
+            <button
+              onClick={() => handleNavigation("/shop")}
+              className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <BsShop />
+              <span>Shop</span>
+            </button>
+
+            <button
+              onClick={() => handleNavigation("/cart")}
+              className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <FiShoppingCart />
+              <span>Cart</span>
+            </button>
+
+            <button
+              onClick={() => handleNavigation("/wishlist")}
+              className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <FiHeart />
+              <span>Wishlist</span>
+            </button>
+
+            <button
+              onClick={() => handleNavigation("/track-order")}
+              className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <FiTruck />
+              <span>Track Order</span>
+            </button>
+
+            <button
+              onClick={() => handleNavigation("/signin")}
+              className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <FiLogIn />
+              <span>Sign In</span>
+            </button>
+
+            <button
+              onClick={() => {
+                logoutUser();
+                window.location.reload(); // Hard‑reload after logout
+                setIsMenuOpened(false);
+              }}
+              className="text-xl text-rose-500 rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
+            >
+              <FiLogOut />
+              <span>Log Out</span>
+            </button>
+          </div>
+
+          {/* Footer links */}
+          <div className="absolute bottom-6 left-0 w-full px-6">
+            <div className="flex flex-col space-y-3">
+              <button
+                onClick={() => handleNavigation("/contact")}
+                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
+              >
+                Contact Us
+              </button>
+              <button
+                onClick={() => handleNavigation("/faq")}
+                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
+              >
+                FAQ
+              </button>
+              <button
+                onClick={() => handleNavigation("/privacy")}
+                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => handleNavigation("/terms")}
+                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
+              >
+                Terms & Conditions
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isPending && <PageLoading/>}
+    </>
+  );
 };
