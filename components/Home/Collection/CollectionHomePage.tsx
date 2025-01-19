@@ -18,6 +18,7 @@ const CollectionHomePage = () => {
     fetchProducts();
   }, []);
 
+
   return (
     <div className="min-h-screen w-full mt-16 flex flex-col items-center">
       <h1 className="text-5xl font-cinzel text-center mb-8">Our Collection</h1>
