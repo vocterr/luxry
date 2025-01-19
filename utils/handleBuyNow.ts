@@ -21,7 +21,6 @@ export const handleBuyNow = async (productId: string) => {
         }
     }
     catch (error) {
-        window.location.href = "https://luxry.vercel.app/signin";
         console.error("Error during Buy Now:", error);
       }
 }

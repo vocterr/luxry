@@ -14,7 +14,7 @@ export const CartItemProductPage = ({cartItem, setTotal}: {cartItem: CartItem, s
     return (
         <li className={`flex py-6 ${deleted ? "hidden" : ""}`}>
             <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                <Image width={2000} height={2000} src="/images/jewelry1.jpg" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="size-full object-cover" />
+                <Image width={2000} height={2000} src={`/images/${cartItem.product.image}`} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="size-full object-cover" />
             </div>
 
             <div className="ml-4 flex flex-1 flex-col">
