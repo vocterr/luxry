@@ -11,6 +11,7 @@ import { redirect } from "next/navigation";
 import { AiFillProduct, AiOutlineProduct } from "react-icons/ai";
 
 import { Metadata } from "next";
+import { ButtonsDashboardPage } from "@/components/Dashboard/Buttons/ButtonsDashboardPage";
 export const metadata: Metadata = {
     title: "LUXry // Admin Dashboard",
   };
@@ -48,7 +49,6 @@ export default async function DashboardPage() {
             </h1>
           </header>
 
-          {/* OVERVIEW CARDS - GRID */}
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div className="bg-gray-900 p-4 rounded">
               <h3 className="text-lg font-playfair">Total Users</h3>
@@ -68,7 +68,6 @@ export default async function DashboardPage() {
             </div>
           </section>
 
-          {/* TABLE OF RECENT ORDERS */}
           <section>
             <h2 className="text-xl md:text-2xl font-cinzel mb-4">
               Recent Orders
@@ -101,20 +100,7 @@ export default async function DashboardPage() {
 
             
           </section>
-          <div className="grid grid-cols-1 gap-4 mt-12 w-[70%] self-center">
-                <Link href="/manage-products" className="flex items-center bg-amber-500 hover:bg-amber-500/90 hover:scale-[1.03] transition-all duration-300 rounded-lg py-2 shadow-md shadow-gray-800 text-black font-bold text-lg justify-center space-x-2" >
-                    <AiOutlineProduct className="h-6 w-6"/>
-                    <h1>Manage Products</h1>
-                </Link>
-                <Link href="/manage-orders" className="flex items-center bg-green-500 hover:bg-green-500/90 hover:scale-[1.03] transition-all duration-300 rounded-lg py-2 shadow-md shadow-gray-800 text-black font-bold text-lg justify-center space-x-2" >
-                    <AiOutlineProduct className="h-6 w-6"/>
-                    <h1>Manage Orders</h1>
-                </Link>
-                <Link href="/manage-users" className="flex items-center bg-blue-500 hover:bg-blue-500/90 hover:scale-[1.03] transition-all duration-300 rounded-lg py-2 shadow-md shadow-gray-800 text-black font-bold text-lg justify-center space-x-2" >
-                    <AiOutlineProduct className="h-6 w-6"/>
-                    <h1>Manage Users</h1>
-                </Link>
-            </div>
+          <ButtonsDashboardPage/>
         </main>
         </>
         

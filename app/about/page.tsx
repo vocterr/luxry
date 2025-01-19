@@ -1,3 +1,4 @@
+import { RedirectButton } from "@/components/RedirectButton";
 import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "LUXry // About",
@@ -41,7 +42,7 @@ export default async function AboutPage() {
                 </div>
                 <hr className="border-b border-gray-500 mt-8" />
 
-                <Link href="/" className="submitButton text-center">Go To The Main Page</Link>
+                <RedirectButton href="/" text="Go To The Main Page"/>
             </div>
         </>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Social Media",
   };
@@ -31,7 +32,7 @@ export default async function SocialMediaLinksPage() {
             </a>
           </div>
         </div>
-        <Link href="/" className="submitButton text-center ">Go To The Main Page</Link>
+        <RedirectButton href="/" text="Go To The Main Page"/>
       </div>
     );
   }

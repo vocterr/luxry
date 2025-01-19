@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Order",
   };
@@ -88,7 +89,7 @@ export default async function OrderPage({ params }: { params: any }) {
                 <div className="fixed w-[350px] flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <h1 className="text-lg xl:text-xl text-center pb-6 border-b border-gray-500">There is an error with our server, please try again later.</h1>
                     <Image src="/animated/nousers.svg" alt="noorder" width={650} height={650} className="h-80" />
-                    <Link href="/shop" className="submitButton text-center">Find Some Products</Link>
+                    <RedirectButton href="/shop" text="Find Some Products"/>
                 </div>
             )}
         </>

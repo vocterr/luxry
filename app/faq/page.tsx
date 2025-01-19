@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // FAQ",
   };
@@ -40,7 +41,7 @@ export default async function FAQPage() {
             </a>{" "}
             page to track your order using your order ID.
           </p>
-          <Link href="/" className="submitButton text-center">Go To The Main Page</Link>
+          <RedirectButton href="/"  text="Go To The Main Page"/>
         </div>
       </div>
     );

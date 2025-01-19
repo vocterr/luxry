@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Policy",
   };
@@ -122,7 +123,7 @@ export default function PrivacyPolicyPage() {
                     <li>📞 Phone: +1 234 567 890</li>
                 </ul>
             </div>
-            <Link href="/" className="submitButton text-center">Go To The Main Page</Link>
+            <RedirectButton href="/"  text="Go To The Main Page"/>
         </div>
     );
 }

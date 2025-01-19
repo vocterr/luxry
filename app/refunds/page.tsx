@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Refunds",
   };
@@ -46,7 +47,7 @@ export default async function ReturnRefundPolicyPage() {
             page.
           </p>
         </div>
-        <Link href="/" className="submitButton text-center">Go To The Main Page</Link>
+        <RedirectButton href="/"  text="Go To The Main Page"/>
       </div>
     );
   }

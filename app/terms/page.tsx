@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Terms of Service",
   };
@@ -74,7 +75,7 @@ export default function TermsConditionsPage() {
                     </p>
                 </section>
             </div>
-            <Link href="/" className="submitButton text-center mb-20">Go To The Main Page</Link>
+            <RedirectButton href="/" text="Go To The Main Page"/>
         </div>
     );
 }

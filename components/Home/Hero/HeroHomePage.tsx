@@ -15,9 +15,7 @@ export const HeroHomePage = () => {
                 <p className="text-xl font-cinzel">
                     Discover exquisite jewelry pieces crafted for elegance.
                 </p>
-                <Link href="/shop" className="relative top-8 px-6 py-3 border border-white text-white uppercase tracking-widest rounded-md hover:bg-white hover:text-black transition duration-[500ms]">
-                    Explore Collection
-                </Link>
+                
             </div>
         </div>
     )
