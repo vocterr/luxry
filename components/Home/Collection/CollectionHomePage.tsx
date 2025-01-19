@@ -47,7 +47,7 @@ const CollectionHomePage = () => {
                 "
               >
                 <Image
-                  src="/images/jewelry1.jpg"
+                  src={`/images/${products[0].image.url}`}
                   alt="jewelry"
                   width={2000}
                   height={2000}
@@ -69,7 +69,7 @@ const CollectionHomePage = () => {
                 "
               >
                 <Image
-                  src="/images/jewelry1.jpg"
+                  src={`/images/${product.image.url}`}
                   alt="jewelry"
                   width={2000}
                   height={2000}

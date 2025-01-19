@@ -11,7 +11,7 @@ export const ManageProductCard = ({product}: {product: Product}) => {
         >
 
             <Image
-                src={"/images/jewelry1.jpg"}
+                src={`/images/${product.image.url}`}
                 alt={"Jewelry"}
                 width={2000}
                 height={2000}

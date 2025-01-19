@@ -2,15 +2,20 @@
 
 import { ShippingInformation } from '@/types';
 import { editShippingInformation } from '@/utils/editShippingInformation';
+import { useRouter } from 'next/navigation';
 import React, { FormEvent, useState } from 'react'
 
 export const FormShippingInformation = ({ initialInformations }: { initialInformations: ShippingInformation }) => {
     const [shippingInformation, setShippingInformation] = useState(initialInformations);
     const [statusMessage, setStatusMessage] = useState<{ success: boolean, message: string } | null>(null)
+    const router = useRouter();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         const result = await editShippingInformation(shippingInformation);
+        if (result?.success) {
+            router.push("/checkout")
+        }
         setStatusMessage({ success: result!.success, message: result!.message });
     }
     return (
@@ -66,9 +71,9 @@ export const FormShippingInformation = ({ initialInformations }: { initialInform
             />
 
             {statusMessage?.success ? (
-                <p className='text-green-400 text-sm mt-2'>{statusMessage.message}</p>
+                <p className='text-green-400 text-sm text-center mt-2'>{statusMessage.message}</p>
             ) : (
-                <p className='text-red-400 text-sm mt-2'>{statusMessage?.message}</p>
+                <p className='text-red-400 text-center text-sm mt-2'>{statusMessage?.message}</p>
             )}
             <button className='submitButton text-center'>
                 Submit Changes

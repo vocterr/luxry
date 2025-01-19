@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { RedirectButton } from "@/components/RedirectButton";
 export const metadata: Metadata = {
     title: "LUXry // Orders",
   };
@@ -44,7 +45,7 @@ export default async function OrdersPage() {
                 <div className="fixed w-[350px] flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <h1 className="text-lg xl:text-xl text-center pb-6 border-b border-gray-500">You haven't placed any orders.</h1>
                     <Image src="/animated/noorders.svg" alt="noorders" width={650} height={650} className="h-80" />
-                    <Link href="/shop" className="submitButton text-center">Find Some Products</Link>
+                    <RedirectButton href="/shop" text="Find Some Items">
                 </div>
             )}
 

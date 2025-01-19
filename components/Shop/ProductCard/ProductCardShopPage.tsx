@@ -19,6 +19,12 @@ export const ProductCardShopPage = ({ product, userRole }: { product: Product, u
         })
     }
 
+    const handleManage = () => {
+        startTransition(() => {
+            router.push(`/manage-products/${product.id}`)
+        })
+    }
+
     return (
         <>
             <div
@@ -58,9 +64,9 @@ export const ProductCardShopPage = ({ product, userRole }: { product: Product, u
                 </div>
                 {
                     userRole === 'ADMIN' && (
-                        <Link href={`/manage-products/${product.id}`} className='absolute top-2 right-2 z-50 p-2  rounded-full bg-gray-800 hover:bg-gray-800/95 hover:scale-[1.04] transition-all duration-300'>
+                        <button onClick={handleManage} className='absolute top-2 right-2 z-50 p-2  rounded-full bg-gray-800 hover:bg-gray-800/95 hover:scale-[1.04] transition-all duration-300'>
                             <FiTool className='h-7 w-7' />
-                        </Link>
+                        </button>
                     )
                 }
             </div >

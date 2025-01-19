@@ -1,3 +1,4 @@
+import { PageLoading } from '@/components/PageLoading';
 import { Spinner } from '@/components/Spinner';
 import { Product } from '@/types';
 import { addToCart } from '@/utils/addToCart';
@@ -16,10 +17,12 @@ export const ButtonsWishlistItem = ({ product, setDeleted }: { product: Product,
     const [cartLoading, setCartLoading] = useState(false);
     const [wishlistLoading, setWishlistLoading] = useState(false);
     const [inCart, setInCart] = useState(false);
+    const [loading, setLoading] = useState(false);
     
 
 
     const handleBuy = async () => {
+        setLoading(true);
         setBuyLoading(true);
         await handleBuyNow(product.id);
         setBuyLoading(false);
@@ -104,7 +107,7 @@ export const ButtonsWishlistItem = ({ product, setDeleted }: { product: Product,
 
 
             {wishlistLoading && <Spinner/>}
-
+            {loading && <PageLoading/>}
 
 
 

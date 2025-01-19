@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -7,13 +7,16 @@ import "swiper/css/pagination";
 import { Product } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { PageLoading } from "@/components/PageLoading";
 
 export const CarouselShopPage = ({
   carouselProducts,
 }: {
   carouselProducts: Product[];
 }) => {
+  const [loading, setLoading] = useState(false);
   return (
+    <>
     <div className="bg-black text-white py-8">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -40,7 +43,7 @@ export const CarouselShopPage = ({
       >
         {carouselProducts.map((product) => (
           <SwiperSlide key={product.id}>
-            <Link href={`/products/${product.id}`} className="group">
+            <Link onClick={() => setLoading(true)} href={`/products/${product.id}`} className="group">
               <div className="relative overflow-hidden rounded-lg shadow-lg">
                 <Image
                   src={`/images/${product.image.url}` || "/animated/nousers.svg"}
@@ -60,5 +63,8 @@ export const CarouselShopPage = ({
         ))}
       </Swiper>
     </div>
+    {loading && <PageLoading/>}
+    </>
+    
   );
 };

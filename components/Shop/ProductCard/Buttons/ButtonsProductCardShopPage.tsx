@@ -1,3 +1,4 @@
+import { PageLoading } from '@/components/PageLoading';
 import { RedirectToSignIn } from '@/components/RedirectToSignIn';
 import { Spinner } from '@/components/Spinner';
 import { Product } from '@/types';
@@ -21,6 +22,7 @@ export const ButtonsProductCardShopPage = ({ product }: { product: Product }) =>
     const [inCart, setInCart] = useState(false);
     const [error, setError] = useState(false);
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const redirectSignIn = () => {
         setError(true);
@@ -32,6 +34,7 @@ export const ButtonsProductCardShopPage = ({ product }: { product: Product }) =>
 
 
     const handleBuy = async () => {
+        setLoading(true);
         setBuyLoading(true);
         await handleBuyNow(product.id);
         setBuyLoading(false);
@@ -162,6 +165,7 @@ export const ButtonsProductCardShopPage = ({ product }: { product: Product }) =>
 
         </div>
         {error && <RedirectToSignIn/>}
+        {loading && <PageLoading/>}
         </>
     )
 }

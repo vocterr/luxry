@@ -31,7 +31,7 @@ export const CartItemCartPage = ({item, setTotal}: {item: CartItem, setTotal: Di
     return (
         <div className={`flex relative items-center justify-between p-6 md:w-[80%] lg:w-[65%] xl:w-[55%] 2xl:w-[45%] 3xl:w-[40%] md:self-center border-b border-gray-800 ${deleted ? "hidden" : ""}`}>
             <Link href={`/products/${item.productId}`} className='flex items-center w-[45%] space-x-2'>
-                <Image src="/images/jewelry1.jpg" alt='jewelry' width={2000} height={2000} className='h-12 w-12 rounded-md' />
+                <Image src={`/images/${item.product.image.url}`} alt='jewelry' width={2000} height={2000} className='h-12 w-12 rounded-md' />
                 <h1 className=' font-inter line-clamp-2 max-w-40'>{item.product.name}</h1>
             </Link>
             <div className='flex items-center w-[55%] justify-between'>

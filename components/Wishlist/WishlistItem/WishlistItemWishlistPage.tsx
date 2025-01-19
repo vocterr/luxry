@@ -7,11 +7,15 @@ import React, { useState } from 'react'
 
 import {FiTool } from 'react-icons/fi'
 import { ButtonsWishlistItem } from './Buttons/ButtonsWishlistItem';
+import { useRedirect } from '@/hooks/useRedirect';
+import { PageLoading } from '@/components/PageLoading';
 
 
 export const WishlistItemWishlistPage = ({ product, userRole }: { product: Product, userRole?: "ADMIN" | "USER" | "" }) => {
     const [deleted, setDeleted] = useState(false);
+    const {redirectUser, pending} = useRedirect();
     return (
+        <>
         <div
             key={product.id}
             className={`relative flex flex-col border border-gray-600 rounded-lg overflow-hidden shadow-lg shadow-gray-900/50 ${deleted ? "hidden" : ""}`}
@@ -39,11 +43,11 @@ export const WishlistItemWishlistPage = ({ product, userRole }: { product: Produ
                 </p>
 
 
-                <Link href={`/products/${product.id}`} className="w-full flex items-center justify-center">
+                <button onClick={() => redirectUser(`/products/${product.id}`)} className="w-full flex items-center justify-center">
                     <button className="submitButton text-center">
                         View Details
                     </button>
-                </Link>
+                </button>
                 <ButtonsWishlistItem setDeleted={setDeleted} product={product}/>
                 
             </div>
@@ -55,5 +59,8 @@ export const WishlistItemWishlistPage = ({ product, userRole }: { product: Produ
                 )
             }
         </div >
+        {pending && <PageLoading/>}
+        </>
+        
     )
 }

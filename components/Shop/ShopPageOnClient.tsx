@@ -32,9 +32,10 @@ export const ShopPageOnClient = ({
         <div className="flex flex-col w-full">
 
             <>
-                <h1 className="font-cinzel text-5xl text-center mt-32 mb-8">
-                    Our Collection
+                <h1 className="font-cinzel text-5xl text-center mt-32">
+                    ,,Winter Elegance"
                 </h1>
+                <p className="text-center text-gray-400">Our newest collection</p>
 
                 <CarouselShopPage carouselProducts={carouselProducts} />
 
