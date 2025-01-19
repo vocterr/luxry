@@ -1,6 +1,4 @@
 
-
-
 export const fetchCartOnClient = async () => {
     
     try {
@@ -11,8 +9,10 @@ export const fetchCartOnClient = async () => {
             },
             credentials: "include"
         });
+        if (res.status === 401) {
+            return null;
+        }
         const data = await res.json();
-        console.log(data);
         return data;
     }
     catch(error) {

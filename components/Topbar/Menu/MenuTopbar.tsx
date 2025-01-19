@@ -38,7 +38,7 @@ export const MenuTopbar = () => {
 
       {/* Side menu overlay */}
       {isMenuOpened && (
-        <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-black text-white z-[999]">
+        <div className="fixed top-0 -left-2 w-[100vw] h-[100vh] bg-black text-white z-[999]">
           {/* Close icon */}
           <FiX
             onClick={() => setIsMenuOpened(false)}
