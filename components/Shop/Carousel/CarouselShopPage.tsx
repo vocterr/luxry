@@ -43,7 +43,7 @@ export const CarouselShopPage = ({
             <Link href={`/products/${product.id}`} className="group">
               <div className="relative overflow-hidden rounded-lg shadow-lg">
                 <Image
-                  src="/images/jewelry1.jpg"
+                  src={`/images/${product.image.url}` || "/animated/nousers.svg"}
                   alt="jewelry"
                   width={2000}
                   height={2000}

@@ -23,7 +23,7 @@ export const ProductCardShopPage = ({ product, userRole }: { product: Product, u
         >
 
             <Image
-                src={"/images/jewelry1.jpg"}
+                src={`/images/${product.image?.url}` || "/animated/nousers.svg"}
                 alt={"Jewelry"}
                 width={2000}
                 height={2000}

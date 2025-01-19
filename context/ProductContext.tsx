@@ -1,7 +1,7 @@
 "use client";
 
 import { Product } from "@/types";
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 
 interface ProductContextInterface {
     products: Product[];
@@ -14,6 +14,10 @@ const ProductContext = createContext<ProductContextInterface | null>(null);
 
 export const ProductProvider = ({children}: {children: ReactNode}) => {
     const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        console.log("Products in context after update:", products);
+    }, [products]);
     return (
         <ProductContext.Provider value={{products, setProducts}}>
             {children}

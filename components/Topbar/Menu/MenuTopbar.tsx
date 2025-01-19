@@ -9,6 +9,12 @@ import { TbLayoutSidebarRightCollapse } from "react-icons/tb";
 
 export const MenuTopbar = () => {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const handleClick = () => {
+        setLoading(true);
+        setIsMenuOpened(false);
+    }
 
     return (
         <>
@@ -18,16 +24,14 @@ export const MenuTopbar = () => {
             />
             {isMenuOpened && (
                 <div className="fixed h-[100vh] w-[100vw] top-0 -left-2 bg-black text-white z-[999]">
-                    {/* Close Button */}
                     <FiX
-                        onClick={() => setIsMenuOpened(false)}
+                        onClick={handleClick}
                         className="h-6 w-6 absolute top-5 right-5 cursor-pointer"
                     />
 
-                    {/* Header / Logo */}
                     <div className="py-6 border-b border-gray-600">
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/"
                             className="font-cinzel text-4xl font-bold text-center block"
                         >
@@ -35,10 +39,9 @@ export const MenuTopbar = () => {
                         </Link>
                     </div>
 
-                    {/* Menu Items */}
                     <div className="mt-8 flex flex-col space-y-6 px-6">
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/shop"
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
@@ -46,7 +49,7 @@ export const MenuTopbar = () => {
                             <h1> Shop</h1>
                         </Link>
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/cart"
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
@@ -55,7 +58,7 @@ export const MenuTopbar = () => {
 
                         </Link>
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/wishlist"
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
@@ -63,7 +66,7 @@ export const MenuTopbar = () => {
                             <h1>Wishlist</h1>
                         </Link>
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/track-order"
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
@@ -71,7 +74,7 @@ export const MenuTopbar = () => {
                             <h1>Track Order</h1>
                         </Link>
                         <Link
-                            onClick={() => setIsMenuOpened(false)}
+                            onClick={handleClick}
                             href="/signin"
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
@@ -87,32 +90,31 @@ export const MenuTopbar = () => {
                         </div>
                     </div>
 
-                    {/* Footer / Extra Links */}
                     <div className="absolute bottom-6 left-0 w-full px-6">
                         <div className="flex flex-col space-y-3">
                             <Link
-                                onClick={() => setIsMenuOpened(false)}
+                                onClick={handleClick}
                                 href="/contact"
                                 className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
                             >
                                 Contact Us
                             </Link>
                             <Link
-                                onClick={() => setIsMenuOpened(false)}
+                                onClick={handleClick}
                                 href="/faq"
                                 className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
                             >
                                 FAQ
                             </Link>
                             <Link
-                                onClick={() => setIsMenuOpened(false)}
+                                onClick={handleClick}
                                 href="/policy"
                                 className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
                             >
                                 Privacy Policy
                             </Link>
                             <Link
-                                onClick={() => setIsMenuOpened(false)}
+                                onClick={handleClick}
                                 href="/terms"
                                 className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
                             >
