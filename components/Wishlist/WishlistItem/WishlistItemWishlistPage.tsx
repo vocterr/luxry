@@ -1,18 +1,20 @@
 "use client";
+import { ButtonsProductCardShopPage } from '@/components/Shop/ProductCard/Buttons/ButtonsProductCardShopPage';
 import { Product } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 import {FiTool } from 'react-icons/fi'
-import { ButtonsProductCardShopPage } from './Buttons/ButtonsProductCardShopPage';
+import { ButtonsWishlistItem } from './Buttons/ButtonsWishlistItem';
 
-export const ProductCardShopPage = ({ product, userRole }: { product: Product, userRole?: "ADMIN" | "USER" | "" }) => {
-    
+
+export const WishlistItemWishlistPage = ({ product, userRole }: { product: Product, userRole?: "ADMIN" | "USER" | "" }) => {
+    const [deleted, setDeleted] = useState(false);
     return (
         <div
             key={product.id}
-            className="relative flex flex-col border border-gray-600 rounded-lg overflow-hidden shadow-lg shadow-gray-900/50"
+            className={`relative flex flex-col border border-gray-600 rounded-lg overflow-hidden shadow-lg shadow-gray-900/50 ${deleted ? "hidden" : ""}`}
         >
 
             <Image
@@ -42,7 +44,7 @@ export const ProductCardShopPage = ({ product, userRole }: { product: Product, u
                         View Details
                     </button>
                 </Link>
-                <ButtonsProductCardShopPage product={product}/>
+                <ButtonsWishlistItem setDeleted={setDeleted} product={product}/>
                 
             </div>
             {

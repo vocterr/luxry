@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import { WishlistItemWishlistPage } from "@/components/Wishlist/WishlistItem/WishlistItemWishlistPage";
 export const metadata: Metadata = {
     title: "LUXry // Wishlist",
   };
@@ -16,7 +17,7 @@ export default async function WishlistPage() {
     const wishlist: Wishlist = await fetchWishlistOnServer(token);
     return (
         <div className="flex flex-col mt-24 w-full text-gray-400">
-            {wishlist ? (
+            {wishlist && wishlist.wishlistItems.length > 0 ? (
                 <>
                     <h1 className="text-4xl mb-8 font-cinzel text-white text-center self-center w-[90%] pb-2 border-b border-gray-500">Wishlist</h1>
                     <input
@@ -25,7 +26,7 @@ export default async function WishlistPage() {
                     />
                     <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4 gap-8 w-[85%] sm:w-[65%] md:w-[55%] lg:w-[75%] xl:w-[60%] 2xl:w-[75%] 3xl:w-[80%] self-center">
                         {wishlist.wishlistItems.map((item) => (
-                            <ProductCardShopPage product={item.product} />
+                            <WishlistItemWishlistPage product={item.product}/>
                         ))}
                     </div>
                 </>

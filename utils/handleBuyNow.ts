@@ -13,7 +13,6 @@ export const handleBuyNow = async (productId: string) => {
             body: JSON.stringify({productId})
         });
         const data = await res.json();
-        console.log(data);
 
         const stripe = await stripePromise;
 

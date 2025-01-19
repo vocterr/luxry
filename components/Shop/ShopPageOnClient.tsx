@@ -21,8 +21,7 @@ export const ShopPageOnClient = ({
     userRole?: "ADMIN" | "USER" | "";
 }) => {
     const { products, setProducts } = useProducts();
-
-    // Set initial products and stop the loading state
+    
     useEffect(() => {
         if (initialProducts && initialProducts.length > 0) {
             setProducts(initialProducts || []);

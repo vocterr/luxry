@@ -18,7 +18,7 @@ export default async function CartPage() {
     
     return (
         <>
-        {cart ? (
+        {cart && cart.cartItems.length > 0 ? (
             <CartPageOnClient initialCart={cart}/>
         ) : (
             <div className="fixed w-[350px] sm:w-auto text-white flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
