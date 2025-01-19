@@ -87,11 +87,11 @@ export const MenuTopbar = () => {
                         </button>
 
                         <button
-                            onClick={() => handleNavigation("/track-order")}
+                            onClick={() => handleNavigation("/orders")}
                             className="text-xl rounded-md flex items-center space-x-2 font-playfair hover:bg-gray-900/50 py-2 px-4 hover:text-gray-400 transition-all"
                         >
                             <FiTruck />
-                            <span>Track Order</span>
+                            <span>Orders</span>
                         </button>
 
                         <button
@@ -113,6 +113,12 @@ export const MenuTopbar = () => {
                     
                     <div className="absolute bottom-6 left-0 w-full px-6">
                         <div className="flex flex-col space-y-3">
+                        <button
+                                onClick={() => handleNavigation("/track-order")}
+                                className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"
+                            >
+                                Track Order
+                            </button>
                             <button
                                 onClick={() => handleNavigation("/contact")}
                                 className="text-sm font-playfair text-gray-400 hover:text-gray-300 transition-all"

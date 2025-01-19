@@ -6,7 +6,7 @@ import { fetchUserRoleOnServer } from '@/utils/fetchUserRoleOnServer';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState, useTransition } from 'react'
-import { FiHeart, FiShoppingCart, FiUser } from 'react-icons/fi'
+import { FiHeart, FiShoppingCart, FiTruck, FiUser } from 'react-icons/fi'
 
 export const RightTopbar = () => {
     const [userRole, setUserRole] = useState("");
@@ -40,6 +40,10 @@ export const RightTopbar = () => {
 
             <button onClick={() => handleNavigation("/cart")}   className='p-2 rounded-full hover:bg-gray-900 hover:scale-[1.04] transition-all duration-300 cursor-pointer'>
                 <FiShoppingCart className='h-6 w-6' />
+            </button>
+
+            <button onClick={() => handleNavigation("/orders")}   className='p-2 rounded-full hover:bg-gray-900 hover:scale-[1.04] transition-all duration-300 cursor-pointer'>
+                <FiTruck className='h-6 w-6' />
             </button>
 
             <button onClick={() => handleNavigation("/profile")}   className='p-2 rounded-full hover:bg-gray-900 hover:scale-[1.04] transition-all duration-300 cursor-pointer'>
