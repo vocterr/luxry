@@ -99,14 +99,14 @@ export const ButtonsWishlistItem = ({ product, setDeleted }: { product: Product,
 
                 </AnimatePresence>
             )}
-
-            <div onClick={handleWishlistRemove} className='p-2 rounded-full'>
+            
+            {wishlistLoading ? (
+                <Spinner/>
+            ) : (
+                <div onClick={handleWishlistRemove} className='p-2 rounded-full cursor-pointer'>
                 <BsFillHeartFill className='text-white h-7 w-7'/>
             </div>
-            
-
-
-            {wishlistLoading && <Spinner/>}
+            ) }
             {loading && <PageLoading/>}
 
 

@@ -1,5 +1,7 @@
 "use client";
 
+import { Note } from "@/components/Note";
+import { PageLoading } from "@/components/PageLoading";
 import { Spinner } from "@/components/Spinner";
 import { registerUser } from "@/utils/registerUser";
 import Image from "next/image";
@@ -20,6 +22,7 @@ export default function SignupPage() {
     const [loading, setLoading] = useState(false);
     const [termsAgree, setTermsAgree] = useState(false);
     const [statusMessage, setStatusMessage] = useState<{ success: boolean, message: string } | null>(null);
+    const [routeLoading, setRouteLoading] = useState(false);
 
     const handleSignUp = async (e: FormEvent) => {
         e.preventDefault();
@@ -85,14 +88,17 @@ export default function SignupPage() {
                     <p className="text-red-400 mt-2 text-sm text-center">{statusMessage?.message}</p>
                 )}
 
-                <button onClick={(e) => handleSignUp(e)} className="mt-6 submitButton ">
+                <button className="mt-6 submitButton mb-2 ">
                     Sign Up
                 </button>
-                <p className="text-gray-300/85 mt-6 self-center">Already have an account? <a href="/signin" className="text-blue-400 hover:text-white">Sign In</a></p>
+                <Note />
+                <p className="text-green-500 text-center">Please use<code> email: admin</code> and <code> password: admin</code> to sign in.</p>
+                <p onClick={() => setRouteLoading(true)} className="text-gray-300/85 mt-6 self-center">Already have an account? <a href="/signin" className="text-blue-400 hover:text-white">Sign In</a></p>
 
             </form>
 
-            <Image src="/animated/signup.svg" alt="signup" width={700} height={700} className="hidden lg:flex fixed xl:right-[20%] lg:right-[12%] 2xl:right-[23%] top-1/2 h-[600px] xl:h-[550px] lg:h-[520px] 3xl:h-[650px] translate-x-1/3 -translate-y-1/2"/>
+            <Image src="/animated/signup.svg" alt="signup" width={700} height={700} className="hidden lg:flex fixed xl:right-[20%] lg:right-[12%] 2xl:right-[23%] top-1/2 h-[600px] xl:h-[550px] lg:h-[520px] 3xl:h-[650px] translate-x-1/3 -translate-y-1/2" />
+                {routeLoading && <PageLoading/>}
         </>
     );
 }

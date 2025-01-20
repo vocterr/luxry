@@ -1,5 +1,6 @@
 "use client";
 
+import { PageLoading } from "@/components/PageLoading";
 import { Spinner } from "@/components/Spinner";
 import { loginUser } from "@/utils/loginUser";
 import Image from "next/image";
@@ -16,6 +17,7 @@ export default function SignupPage() {
     });
     const [loading, setLoading] = useState(false);
     const [statusMessage, setStatusMessage] = useState<{ success: boolean, message: string } | null>(null);
+    const [routeLoading, setRouteLoading] = useState(false);
 
     const handleSignIn = async (e: FormEvent) => {
         e.preventDefault();
@@ -66,10 +68,11 @@ export default function SignupPage() {
             <button onClick={(e) => handleSignIn(e)} className="mt-6 submitButton ">
                 Sign In
             </button>
-            <p className="text-gray-300/85 mt-6 self-center">Can't sign in? <a href="forgot-password" className="text-blue-400 hover:text-white">Reset Password</a></p>
-            <p className="text-gray-300/85 mt-2 self-center">Doesn't have an account? <a href="/signup" className="text-blue-400 hover:text-white">Sign Up</a></p>
+            <p onClick={() => setRouteLoading(true)} className="text-gray-300/85 mt-6 self-center">Can't sign in? <a href="forgot-password" className="text-blue-400 hover:text-white">Reset Password</a></p>
+            <p onClick={() => setRouteLoading(true)}  className="text-gray-300/85 mt-2 self-center">Doesn't have an account? <a href="/signup" className="text-blue-400 hover:text-white">Sign Up</a></p>
         </form>
         <Image src="/animated/signin.svg" alt="signin" width={600} height={600} className="hidden lg:flex fixed right-[25%] xl:right-[30%] 2xl:right-1/3 translate-x-1/2 top-1/2 -translate-y-1/2 h-[450px]"/>
+            {routeLoading && <PageLoading/>}
         </>
     );
 }

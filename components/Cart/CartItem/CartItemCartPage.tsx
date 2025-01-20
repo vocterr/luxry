@@ -1,5 +1,7 @@
 import { CartItem } from '@/types'
 import { deleteCartItem } from '@/utils/deleteCartItem';
+import { quantityMinus } from '@/utils/quantityMinus';
+import { quantityPlus } from '@/utils/quantityPlus';
 import Image from 'next/image'
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useState } from 'react'
@@ -10,12 +12,14 @@ export const CartItemCartPage = ({item, setTotal}: {item: CartItem, setTotal: Di
     const [deleted, setDeleted] = useState(false);
 
     const plus = () => {
+        quantityPlus(item.id)
         setQuantity((prev) => prev + 1);
         setTotal((prev) => prev + item.product.price);
     }
 
     const minus = () => {
         if (quantity > 1) {
+            quantityMinus(item.id)
             setQuantity((prev) => prev - 1);
             setTotal((prev) => prev - item.product.price);
         }
